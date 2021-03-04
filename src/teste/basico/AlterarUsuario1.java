@@ -15,8 +15,13 @@ public class AlterarUsuario1 {
 				
 				em.getTransaction().begin();
 				Usuario usuario = em.find(Usuario.class, 1L);
+				
 				usuario.setNome("Nykson24");
 				usuario.setEmail("nykson24@gmail.com");
+				
+				
+				//evitar a atualização dos dados no banco
+				//em.detach(usuario);
 				// responsavel por atualizar o usuario no banco
 				em.merge(usuario);
 				
